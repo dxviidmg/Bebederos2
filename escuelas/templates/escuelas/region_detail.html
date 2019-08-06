@@ -1,0 +1,33 @@
+{%block content%}
+
+	<h2>Entidades</h2>
+
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>Partida</th>
+				<th>Nombre</th>	
+			</thead>
+			<tbody>
+
+	{%for entidad in entidades%}
+
+				<tr>
+					<td>{{entidad.partida}}</td>
+					<td>{{entidad.nombre}}</td>
+					<td><a href="{%url 'escuelas:entidad-detail' entidad.slug%}">Detalle</a></td>	
+				</tr>
+	
+	{%empty%}
+	
+				<tr>
+					<td colspan="3">Lista de regiones vacia</td>
+				</tr>
+
+	{%endfor%}
+
+			</tbody>
+		</table>
+	</div>
+
+{%endblock content%}

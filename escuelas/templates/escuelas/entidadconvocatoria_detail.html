@@ -1,0 +1,40 @@
+{%block content%}
+
+	<h2>Escuelas</h2>
+
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>Numero</th>
+				<th>CCT</th>
+				<th>Nombre</th>
+				<th>Municipio</th>
+				<th>Localidad</th>
+			</thead>
+			<tbody>
+
+	{%for escuela in escuelas%}
+
+				<tr>
+					<td>{{escuela.numero}}</td>
+					<td>{{escuela.cct}}</td>
+					<td>{{escuela.nombre}}</td>
+					<td>{{escuela.municipio}}</td>
+
+					<td>{{escuela.localidad}}</td>
+					<td><a href="{%url 'escuelas:escuela-detail' escuela.cct%}">Detalle</a></td>
+				</tr>
+	
+	{%empty%}
+	
+				<tr>
+					<td colspan="3">Lista de regiones vacia</td>
+				</tr>
+
+	{%endfor%}
+
+			</tbody>
+		</table>
+	</div>
+
+{%endblock content%}

@@ -1,0 +1,33 @@
+{%block content%}
+
+	<h2>Convocatorias</h2>
+
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>Convocatoria</th>
+				<th>Escuelas asginadas</th>	
+			</thead>
+			<tbody>
+
+	{%for entidad_convocatoria in entidad_convocatorias%}
+
+				<tr>
+					<td>{{entidad_convocatoria.convocatoria}}</td>
+					<td>{{entidad_convocatoria.escuelas_asignadas}}</td>
+					<td><a href="{%url 'escuelas:entidad-convocatoria-detail' entidad_convocatoria.slug%}">Detalle</a></td>	
+				</tr>
+	
+	{%empty%}
+	
+				<tr>
+					<td colspan="3">Lista de regiones vacia</td>
+				</tr>
+
+	{%endfor%}
+
+			</tbody>
+		</table>
+	</div>
+
+{%endblock content%}
