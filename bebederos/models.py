@@ -1,5 +1,6 @@
 from django.db import models
 from escuelas.models import Escuela
+from django.template.defaultfilters import slugify
 
 nivel_choices = (
 	("Preescolar", "Preescolar"),
@@ -66,11 +67,14 @@ class SistemaBebedero(models.Model):
 	ns_mueble = models.CharField(max_length=20, null=True, blank=True)
 	no_trazabilidad = models.TextField(null=True, blank=True)
 	esta_en_campo = models.BooleanField(default=False)
+	slug = models.SlugField(max_length=50, blank=True, null=True)
 
 	def __str__(self):
 		return '{}'.format(self.escuela)
 
 	def save(self):
-		if self.sistema_potabilizador and self.ns_mueble:
-			self.no_trazabilidad = self.mueble #+ str(self.ns_mueble + self.sistema_potabilizador)
+		self.slug = "sb-" + slugify(self.escuela)
+#		if self.sistema_potabilizador and self.ns_mueble:
+#			self.no_trazabilidad = self.mueble# + str(self.ns_mueble + self.sistema_potabilizador)
+	
 		super(SistemaBebedero, self).save()		
