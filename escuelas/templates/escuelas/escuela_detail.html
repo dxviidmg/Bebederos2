@@ -1,0 +1,26 @@
+{%block content%}
+
+{{object.cct}}
+<br>
+{{object.nombre}}
+<br>
+{{object.nivel_educativo}}
+<br>
+{{object.turno}}
+<br>
+{{object.plantilla_escolar}}<br>
+{{object.municipio}}<br>
+{{object.localidad}}<br>
+{{object.director}}<br>
+{{object.telefono}}<br>
+{{sistemabebedero}}<br>
+
+N analisis {{analisis}} <br>
+
+{%if numero_analisis == 1%}
+{{analisis.0.slug}}
+<a href="{%url 'agua:analisis-update' analisis.0.slug%}">Editar primer analisis</a>
+{%endif%}
+
+<a href="{%url 'agua:analisis-create' object.slug%}">Nuevo analisis</a>
+{%endblock content%}

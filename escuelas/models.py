@@ -35,7 +35,7 @@ class Entidad(models.Model):
 	region = models.ForeignKey(Region, verbose_name="Región", on_delete=models.CASCADE)
 	partida = models.IntegerField()
 	nombre = models.CharField(max_length=20)
-	abreviatura	= models.CharField(max_length=4, blank=True, null=True)
+	abreviatura	= models.CharField(max_length=4)
 	slug = models.SlugField(max_length=50, blank=True, unique=True)
 
 	def __str__(self):
@@ -83,8 +83,11 @@ class Escuela(models.Model):
 #	evidencias = models.IntegerField(null=True, blank=True)
 #	mantenimientos = models.IntegerField(null=True, blank=True)
 
-	slug = models.SlugField(max_length=10, blank=True, unique=True)
+	slug = models.SlugField(max_length=50, blank=True, unique=True)
 
 	def save(self):
 		self.slug = '-'.join((slugify(self.cct), slugify(self.nombre)))
-		super(EntidadConvocatoria, self).save()
+		super(Escuela, self).save()
+
+	def __str__(self):
+		return '{} {}'.format(self.cct, self.nombre)		

@@ -2,7 +2,9 @@ from django.shortcuts import render
 from .models import *
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-
+from bebederos.models import *
+from agua.models import *
+from expedientes.models import *
 
 class RegionListView(ListView):
 	model = Region
@@ -40,9 +42,13 @@ class EntidadConvocatoriaDetailView(DetailView):
 class EscuelaDetailView(DetailView):
 	model = Escuela
 
-#	def get_context_data(self, **kwargs):
-#		context = super(EntidadConvocatoriaDetailView, self).get_context_data(**kwargs)
-#		context['escuelas'] = Escuela.objects.filter(entidad_convocatoria=self.object)
+	def get_context_data(self, **kwargs):
+		context = super(EscuelaDetailView, self).get_context_data(**kwargs)
+		escuela = Escuela.objects.get(slug=self.kwargs['slug'])		
+		context['sistemabebedero'] = SistemaBebedero.objects.get(escuela=escuela)
+		context['numero_analisis'] = Analisis.objects.filter(escuela=escuela).count()
+		context['analisis'] = Analisis.objects.filter(escuela=escuela)
+		context['expediente'] = Expediente.objects.filter(escuela=escuela)
 #		print(context['entidades'])
 #		print(self.object)
-#		return context		
+		return context		
