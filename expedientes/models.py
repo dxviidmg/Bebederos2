@@ -39,3 +39,4 @@ class Fotografia(models.Model):
 
 	def __str__(self):
 		return '{} {}'.format(self.descripcion, self.escuela)
+

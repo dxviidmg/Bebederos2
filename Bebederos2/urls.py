@@ -19,7 +19,8 @@ from django.urls import path, include
 urlpatterns = [
 	path('admin/', admin.site.urls),
 	path('', include('escuelas.urls', namespace="escuelas")), 
-    path('', include('agua.urls', namespace="agua")),     
+    path('', include('agua.urls', namespace="agua")),
+    path('', include('expedientes.urls', namespace="expedientes")),    
 ]
 
 #Media and static

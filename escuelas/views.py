@@ -48,7 +48,8 @@ class EscuelaDetailView(DetailView):
 		context['sistemabebedero'] = SistemaBebedero.objects.get(escuela=escuela)
 		context['numero_analisis'] = Analisis.objects.filter(escuela=escuela).count()
 		context['analisis'] = Analisis.objects.filter(escuela=escuela)
-		context['expediente'] = Expediente.objects.filter(escuela=escuela)
+		context['expediente'] = Expediente.objects.filter(escuela=escuela).count()
+		context['expedientes'] = Expediente.objects.filter(escuela=escuela)		
 #		print(context['entidades'])
 #		print(self.object)
 		return context		

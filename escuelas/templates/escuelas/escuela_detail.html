@@ -1,5 +1,6 @@
 {%block content%}
 
+<h2>GENERAL</h2>>
 {{object.cct}}
 <br>
 {{object.nombre}}
@@ -15,6 +16,7 @@
 {{object.telefono}}<br>
 {{sistemabebedero}}<br>
 
+<h2>ANALISIS DE AGUA</H2>
 N analisis {{analisis}} <br>
 
 {%if numero_analisis == 1%}
@@ -23,4 +25,16 @@ N analisis {{analisis}} <br>
 {%endif%}
 
 <a href="{%url 'agua:analisis-create' object.slug%}">Nuevo analisis</a>
+
+<h2>EXPEDIENTE</h2>
+{{expediente}}
+
+{%if expediente == 0%}
+no hay, crea 1
+<a href="{%url 'expedientes:expediente-create' object.slug%}">Nuevo expediente</a>
+
+{%else%}
+si hay a actualizar
+<a href="{%url 'expedientes:expediente-update' expedientes.0.slug%}"> {{expedientes.0.slug}} Actualizar expediente</a>
+{%endif%}
 {%endblock content%}
