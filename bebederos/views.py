@@ -6,7 +6,6 @@ from django.urls import reverse
 
 class SistemaBebederoUpdateView(SuccessMessageMixin, UpdateView):
 	model = SistemaBebedero
-#	template_name = "test.html"
 	fields = ['mueble', 'sistema_potabilizador', 'ns_mueble', 'esta_en_campo']
 	success_message = "¡Actualizacion exitosa exitosa!"
 

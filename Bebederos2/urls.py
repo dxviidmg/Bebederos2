@@ -21,7 +21,8 @@ urlpatterns = [
 	path('', include('escuelas.urls', namespace="escuelas")), 
     path('', include('agua.urls', namespace="agua")),
     path('', include('expedientes.urls', namespace="expedientes")),
-    path('', include('bebederos.urls', namespace="bebederos")),    
+    path('', include('bebederos.urls', namespace="bebederos")),
+    path('', include('mantenimientos.urls', namespace="mantenimientos")),    
 ]
 
 #Media and static

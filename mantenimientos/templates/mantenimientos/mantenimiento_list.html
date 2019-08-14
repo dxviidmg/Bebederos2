@@ -1,0 +1,48 @@
+{%block content%}
+
+	<h2>Mantenimientos de {{escuela}}</h2>
+
+	<a href="{%url 'mantenimientos:mantenimiento-create' escuela.slug%}">Nuevo mantenimiento</a>
+
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>Fecha</th>
+				<th>Tipo</th>
+				<th>Descripcion</th>
+				<th>Volumen</th>
+				<th>Foto del carnet</th>
+				<th>Foto al inicio</th>		
+				<th>Foto al final</th>
+				<th>Foto del medidor</th>									
+			</thead>
+			<tbody>
+
+	{%for mantenimiento in mantenimientos%}
+
+				<tr>
+					<td>{{mantenimiento.fecha}}</td>
+					<td>{{mantenimiento.tipo}}</td>
+					<td>{{mantenimiento.descripcion}}</td>
+					<td>{{mantenimiento.volumen}}</td>
+					<td><a href="{{mantenimiento.carnet.url}}">Ver</a></td>	
+					<td><a href="{{mantenimiento.foto_inicio.url}}">Ver</a></td>
+					<td><a href="{{mantenimiento.foto_fin.url}}">Ver</a></td>
+					<td><a href="{{mantenimiento.foto_medidor.url}}">Ver</a></td>
+
+					<td><a href="{%url 'mantenimientos:mantenimiento-update' mantenimiento.pk%}">Modificar</a></td>										
+				</tr>
+	
+	{%empty%}
+	
+				<tr>
+					<td colspan="3">Lista de regiones vacia</td>
+				</tr>
+
+	{%endfor%}
+
+			</tbody>
+		</table>
+	</div>
+
+{%endblock content%}

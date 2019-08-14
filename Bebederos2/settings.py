@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'escuelas',
     'agua',
     'expedientes',
-    'bebederos'
+    'bebederos',
+    'mantenimientos',
 ]
 
 MIDDLEWARE = [
