@@ -1,3 +1,5 @@
+{% extends 'base.html'%}
+
 {%block content%}
 
 	<h2>Convocatorias</h2>
@@ -6,16 +8,16 @@
 		<table class="table">
 			<thead>
 				<th>Convocatoria</th>
-				<th>Escuelas asginadas</th>	
+				<th>Escuelas Contracturadas</th>	
 			</thead>
 			<tbody>
 
 	{%for entidad_convocatoria in entidad_convocatorias%}
 
 				<tr>
-					<td>{{entidad_convocatoria.convocatoria}}</td>
-					<td>{{entidad_convocatoria.escuelas_asignadas}}</td>
-					<td><a href="{%url 'escuelas:entidad-convocatoria-detail' entidad_convocatoria.slug%}">Detalle</a></td>	
+					<td><a href="{%url 'escuelas:entidad-convocatoria-detail' entidad_convocatoria.slug%}">{{entidad_convocatoria.convocatoria}}</a></td>
+					<td>{{entidad_convocatoria.escuelas_contractuadas}}</td>
+					<td></td>	
 				</tr>
 	
 	{%empty%}

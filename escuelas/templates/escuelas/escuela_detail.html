@@ -1,24 +1,89 @@
+{% extends 'base.html'%}
+
+{% load bootstrap %}
+
 {%block content%}
 
-<h2>GENERAL</h2>>
-{{object.cct}}
-<br>
-{{object.nombre}}
-<br>
-{{object.nivel_educativo}}
-<br>
-{{object.turno}}
-<br>
-{{object.plantilla_escolar}}<br>
-{{object.municipio}}<br>
-{{object.localidad}}<br>
-{{object.director}}<br>
-{{object.telefono}}<br>
-{{sistemabebedero}}<br>
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>Numero</th>
+				<th>CCT</th>
+				<th>Nombre</th>
+				<th>Convocatoria</th>				
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{object.numero}}</td>
+					<td>{{object.cct}}</td>
+					<td>{{object.nombre}}</td>
+					<td>{{object.entidad_convocatoria.convocatoria}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="table">
+			<thead>
+				<th>Turno</th>
+				<th>Nivel educativo</th>
+				<th>Plantilla</th>				
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{object.turno}}</td>
+					<td>{{object.nivel_educativo}}</td>
+					<td>{{object.plantilla_escolar}}</td>			
+				</tr>
+			</tbody>
+		</table>	
+
+		<table class="table">
+			<thead>
+				<th>Domicilio</th>
+				<th>Localidad</th>
+				<th>Municipio</th>
+				<th>Entidad</th>				
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{object.domicilio}}</td>
+					<td>{{object.localidad}}</td>
+					<td>{{object.municipio}}</td>
+					<td>{{object.entidad_convocatoria}}</td>					
+				</tr>
+			</tbody>
+		</table>		
+
+
+		<table class="table">
+			<thead>
+				<th>Modelo</th>
+				<th>Sistema potabilizador</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{sistemabebedero.mueble.modelo}}</td>
+					<td>{{sistemabebedero.sistema_potabilizador.tipo}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="table">
+			<thead>
+				<th>Director</th>
+				<th>Telefono</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{object.director}}</td>
+					<td>{{object.telefono}}</td>
+				</tr>
+			</tbody>
+		</table>		
+	</div>
 
 <h2>ANALISIS DE AGUA</H2>
-N analisis {{analisis}} <br>
-
+N analisis {{analisis}}
 {%if numero_analisis == 1%}
 {{analisis.0.slug}}
 <a href="{%url 'agua:analisis-update' analisis.0.slug%}">Editar primer analisis</a>
@@ -35,7 +100,7 @@ no hay, crea 1
 
 {%else%}
 si hay a actualizar
-<a href="{%url 'expedientes:expediente-update' expedientes.0.slug%}"> {{expedientes.0.slug}} Actualizar expediente</a>
+<a href="{%url 'expedientes:expediente-update' expedientes.0.slug%}"> Actualizar expediente</a>
 {%endif%}
 <h2>SB</h2>
 <a href="{%url 'bebederos:sistemabebedero-update' sistemabebedero.slug%}">actualizar sb</a>

@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'bebederos',
     'mantenimientos',
     'accounts',
+    #Modules
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [

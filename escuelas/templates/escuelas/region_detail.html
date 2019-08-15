@@ -1,6 +1,11 @@
+{% extends 'base.html'%}
+
+{% load bootstrap %}
+
 {%block content%}
 
-	<h2>Entidades</h2>
+	<h2>Región {{object}}</h2>
+	<h2>Lista de entidades</h2>
 
 	<div class="table-responsive text-center">
 		<table class="table">
@@ -14,8 +19,7 @@
 
 				<tr>
 					<td>{{entidad.partida}}</td>
-					<td>{{entidad.nombre}}</td>
-					<td><a href="{%url 'escuelas:entidad-detail' entidad.slug%}">Detalle</a></td>	
+					<td><a href="{%url 'escuelas:entidad-detail' entidad.slug%}">{{entidad.nombre}}</a></td>
 				</tr>
 	
 	{%empty%}

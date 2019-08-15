@@ -1,3 +1,5 @@
+{% extends 'base.html'%}
+
 {%block content%}
 
 	<h2>Escuelas</h2>
@@ -10,6 +12,8 @@
 				<th>Nombre</th>
 				<th>Municipio</th>
 				<th>Localidad</th>
+				<th>Plantilla</th>
+				<th>Mueble</th>								
 			</thead>
 			<tbody>
 
@@ -17,12 +21,12 @@
 
 				<tr>
 					<td>{{escuela.numero}}</td>
-					<td>{{escuela.cct}}</td>
+					<td><a href="{%url 'escuelas:escuela-detail' escuela.slug%}">{{escuela.cct}}</a></td>
 					<td>{{escuela.nombre}}</td>
 					<td>{{escuela.municipio}}</td>
-
 					<td>{{escuela.localidad}}</td>
-					<td><a href="{%url 'escuelas:escuela-detail' escuela.slug%}">Detalle</a></td>
+					<td>{{escuela.plantilla_escolar}}</td>
+					<td>{{escuela}}</td>
 				</tr>
 	
 	{%empty%}

@@ -1,3 +1,6 @@
+{% extends 'base.html'%}
+
+{% load bootstrap %}
 
 {%block content%}
 
@@ -15,8 +18,7 @@
 
 				<tr>
 					<td>{{region.numero}}</td>
-					<td>{{region.nombre}}</td>
-					<td><a href="{%url 'escuelas:region-detail' region.slug%}">Detalle</a></td>	
+					<td><a href="{%url 'escuelas:region-detail' region.slug%}">{{region.nombre}}</a></td>
 				</tr>
 	
 	{%empty%}
