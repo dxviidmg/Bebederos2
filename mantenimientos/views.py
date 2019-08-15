@@ -20,7 +20,7 @@ class MantenimientoListView(ListView):
 
 class MantenimientoCreateView(CreateView):
 	model = Mantenimiento
-	fields = [	'fecha', 'tipo', 'descripcion', 'volumen', 'carnet', 'foto_inicio', 'foto_fin', 'foto_medidor']
+	fields = ['fecha', 'tipo', 'descripcion', 'volumen', 'carnet', 'foto_inicio', 'foto_fin', 'foto_medidor']
 
 #	success_message = "¡Creacion exitosa!"
 
@@ -35,7 +35,7 @@ class MantenimientoCreateView(CreateView):
 
 class MantenimientoUpdateView(UpdateView):
 	model = Mantenimiento
-	fields = [	'fecha', 'tipo', 'descripcion', 'volumen', 'carnet', 'foto_inicio', 'foto_fin', 'foto_medidor']
+	fields = ['fecha', 'tipo', 'descripcion', 'volumen', 'carnet', 'foto_inicio', 'foto_fin', 'foto_medidor']
 
 	success_message = "¡Actualizacion exitosa exitosa!"
 
