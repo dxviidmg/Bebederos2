@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bebederos',
     'mantenimientos',
     'accounts',
+#    'oficios',
     #Modules
     'bootstrapform',
 ]

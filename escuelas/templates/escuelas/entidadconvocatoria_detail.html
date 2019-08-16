@@ -35,7 +35,8 @@
 				<th>Municipio</th>
 				<th>Localidad</th>
 				<th>Plantilla</th>
-				<th>Mueble</th>								
+				<th>Mueble</th>
+				<th>Lista</th>								
 			</thead>
 			<tbody>
 
@@ -49,6 +50,8 @@
 					<td>{{escuela.localidad}}</td>
 					<td>{{escuela.plantilla_escolar}}</td>
 					<td>{{escuela.escuela_sistemabebedero.mueble.modelo}}
+					</td>
+					<td><a href="{{escuela.lista.archivo.url}}">{{escuela.lista.nombre}} </a> {{escuela.lista.url}}
 					</td>
 				</tr>
 	

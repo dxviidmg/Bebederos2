@@ -18,8 +18,8 @@ class Mantenimiento (models.Model):
 			
 	carnet = models.ImageField(verbose_name="Carnet actualizado", upload_to='mantenimientos/%Y/%m/%d/')
 	foto_inicio = models.ImageField(verbose_name="Foto al iniciar el mantenimiento", upload_to='mantenimientos/%Y/%m/%d/')
-	foto_fin = models.FileField(verbose_name="Foto al finalizar el mantenimiento", upload_to='mantenimientos/%Y/%m/%d/')
-	foto_medidor = models.FileField(verbose_name="Foto del medidor", upload_to='mantenimientos/%Y/%m/%d/', null=True, blank=True)
+	foto_fin = models.ImageField(verbose_name="Foto al finalizar el mantenimiento", upload_to='mantenimientos/%Y/%m/%d/')
+	foto_medidor = models.ImageField(verbose_name="Foto del medidor", upload_to='mantenimientos/%Y/%m/%d/')
 
 	def __str__(self):
 		return '{} {}'.format(self.escuela, self.fecha)

@@ -37,3 +37,10 @@ class EscuelaAdmin(admin.ModelAdmin):
 #    list_filter = ['region']
 #    prepopulated_fields = {"slug": ("nombre",)}
 admin.site.register(Escuela, EscuelaAdmin)
+
+class OficioAdmin(admin.ModelAdmin):
+    list_display = ['nombre']
+#    search_fields = ['nombre',]
+#    list_filter = ['region']
+#    prepopulated_fields = {"slug": ("nombre",)}
+admin.site.register(Oficio, OficioAdmin)

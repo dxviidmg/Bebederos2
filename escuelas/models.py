@@ -1,5 +1,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.utils import timezone
+#from oficios.models import *
 
 nivel_choices = (
 	("Preescolar", "Preescolar"),
@@ -60,6 +62,16 @@ class EntidadConvocatoria(models.Model):
 		self.slug = '-'.join((slugify(self.entidad), slugify(self.convocatoria)))
 		super(EntidadConvocatoria, self).save()
 
+class Oficio(models.Model):
+	nombre = models.TextField()
+	archivo = models.FileField(upload_to='mantenimientos/%Y/%m/%d/')
+	entidad_convocatoria = models.ForeignKey(EntidadConvocatoria, on_delete=models.CASCADE, null=True, blank=True, )
+	fecha = models.DateTimeField(default=timezone.now)
+	autor = models.CharField(max_length=50)
+
+	def __str__(self):
+		return '{} {}'.format(self.nombre, self.entidad_convocatoria)
+
 class Escuela(models.Model):
 	#Convocatoria
 	entidad_convocatoria = models.ForeignKey(EntidadConvocatoria, on_delete=models.CASCADE)
@@ -82,7 +94,7 @@ class Escuela(models.Model):
 #	avance = models.IntegerField(blank=True, null=True)
 #	evidencias = models.IntegerField(null=True, blank=True)
 #	mantenimientos = models.IntegerField(null=True, blank=True)
-
+	lista = models.ForeignKey(Oficio, on_delete=models.CASCADE)
 	slug = models.SlugField(max_length=50, blank=True, unique=True)
 
 	def save(self):
@@ -92,19 +104,4 @@ class Escuela(models.Model):
 	def __str__(self):
 		return '{} {}'.format(self.cct, self.nombre)
 
-	#Convocatoria
-	#Administrativos
-	cct = models.CharField(max_length=10)
-	nombre = models.TextField()
-	nivel_educativo = models.CharField(max_length=20, choices=nivel_choices)
-	turno = models.CharField(max_length=20, default="Matutino", choices=turno_choices)
-	plantilla_escolar = models.IntegerField()
-	#Ubicacion
-	municipio = models.CharField(max_length=50)
-	domicilio = models.TextField()
-	localidad = models.CharField(max_length=50)
-	#Contacto
-	director = models.CharField(max_length=50, blank=True, null=True)
-	telefono = models.CharField(max_length=10, blank=True, null=True)
-	esta_sustituida = models.BooleanField(default=False)
-	es_sustitucion = models.BooleanField(default=False)		
+
