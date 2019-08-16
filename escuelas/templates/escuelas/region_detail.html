@@ -4,7 +4,27 @@
 
 {%block content%}
 
-	<h2>Región {{object}}</h2>
+	<a href="{%url 'escuelas:region-list'%}">Regresar</a>
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th colspan="2">Región</th>
+			</thead>
+			<thead>
+				<th>Numero</th>
+				<th>Nombre</th>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td>{{object.numero}}</td>
+					<td>{{object.nombre}}</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
 	<h2>Lista de entidades</h2>
 
 	<div class="table-responsive text-center">

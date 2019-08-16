@@ -9,7 +9,7 @@ app_name = 'accounts'
 urlpatterns = [
 	path('login', auth_views.LoginView.as_view(template_name = 'accounts/login.html'), name='login'),
 #	path('login', login.as_view(), name='login'),
-#	path('logout', login, name='logout'),	
+	path('logout', auth_views.LogoutView.as_view(), name='logout'),	
 
 	path('accounts/direccionador', views.Direccionador.as_view(), name="direccionador"),
     ]

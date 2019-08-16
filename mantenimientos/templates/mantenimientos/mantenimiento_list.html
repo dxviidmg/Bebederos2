@@ -1,6 +1,12 @@
+{% extends 'base.html'%}
+
+{% load bootstrap %}
+
 {%block content%}
 
 	<h2>Mantenimientos de {{escuela}}</h2>
+
+	<a href="{%url 'escuelas:escuela-detail' escuela.slug%}">Regresar</a>
 
 	<a href="{%url 'mantenimientos:mantenimiento-create' escuela.slug%}">Nuevo mantenimiento</a>
 
@@ -14,7 +20,8 @@
 				<th>Foto del carnet</th>
 				<th>Foto al inicio</th>		
 				<th>Foto al final</th>
-				<th>Foto del medidor</th>									
+				<th>Foto del medidor</th>
+				<th>Acciones</th>
 			</thead>
 			<tbody>
 
@@ -36,7 +43,7 @@
 	{%empty%}
 	
 				<tr>
-					<td colspan="3">Lista de regiones vacia</td>
+					<td colspan="9">No hay mantenimientos</td>
 				</tr>
 
 	{%endfor%}

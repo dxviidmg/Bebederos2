@@ -33,6 +33,11 @@ class MantenimientoCreateView(CreateView):
 		form.instance.escuela = escuela
 		return super().form_valid(form)
 
+	def get_context_data(self, **kwargs):
+		context = super(MantenimientoCreateView, self).get_context_data(**kwargs)
+		context['escuela'] = Escuela.objects.get(slug=self.kwargs['slug'])
+		return context
+
 class MantenimientoUpdateView(UpdateView):
 	model = Mantenimiento
 	fields = ['fecha', 'tipo', 'descripcion', 'volumen', 'carnet', 'foto_inicio', 'foto_fin', 'foto_medidor']
@@ -44,4 +49,10 @@ class MantenimientoUpdateView(UpdateView):
 		mantenimiento = Mantenimiento.objects.get(pk=self.kwargs['pk'])
 		escuela = mantenimiento.escuela
 #		escuela = Escuela.objects.get(slug=self.kwargs['slug'])
-		return reverse('mantenimientos:mantenimiento-list', args=(escuela.slug,))	
+		return reverse('mantenimientos:mantenimiento-list', args=(escuela.slug,))
+
+	def get_context_data(self, **kwargs):
+		context = super(MantenimientoUpdateView, self).get_context_data(**kwargs)
+		mantenimiento = Mantenimiento.objects.get(pk=self.kwargs['pk'])
+		context['escuela'] = mantenimiento.escuela
+		return context		

@@ -2,7 +2,29 @@
 
 {%block content%}
 
-	<h2>Escuelas</h2>
+	<a href="{%url 'escuelas:entidad-detail' object.entidad.slug%}">Regresar</a>
+
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th colspan="3">Convocatoria</th>
+			</thead>
+			<thead>
+				<th>Region</th>
+				<th>Entidad</th>
+				<th>Año</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{object.region.numero}} {{object.entidad.region.nombre}}</td>
+					<td>{{object.entidad}}</td>
+					<td>{{object.convocatoria}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<h3>Lista de escuelas</h3>
 
 	<div class="table-responsive text-center">
 		<table class="table">
@@ -26,7 +48,8 @@
 					<td>{{escuela.municipio}}</td>
 					<td>{{escuela.localidad}}</td>
 					<td>{{escuela.plantilla_escolar}}</td>
-					<td>{{escuela}}</td>
+					<td>{{escuela.escuela_sistemabebedero.mueble.modelo}}
+					</td>
 				</tr>
 	
 	{%empty%}

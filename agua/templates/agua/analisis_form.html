@@ -1,13 +1,19 @@
+{% extends 'base.html'%}
+
+{%load bootstrap%}
+
 {%block content%}
 
-	<h2>{%if object%} Actualiza analisis{%else%} Crea analisis {%endif%}</h2>
+	<a href="{%url 'escuelas:escuela-detail' escuela.slug%}">Regresar</a>	
+
+	<h2>{%if object%}Actualización{%else%}Creación{%endif%}  de análisis agua</h2>
 
 
 	<form method="post" enctype="multipart/form-data">
 		{%csrf_token%}
-		{{form}}
+		{{form|bootstrap}}
 
-		<input type="submit" value="Crear">
+		<input type="submit" value="Guardar cambios">
 	</form>
 
 {%endblock content%}

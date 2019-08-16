@@ -30,7 +30,6 @@ class SistemaPotabilizador(models.Model):
 		return '{} {}'.format(self.tipo, self.proveedor)
 
 class Mueble(models.Model):
-
 	modelo = models.CharField(max_length=20, null=True, blank=True)
 	nivel_educativo = models.CharField(max_length=20, choices=nivel_choices)
 	rango = models.CharField(max_length=10, choices=rango_choices)
@@ -61,7 +60,7 @@ class Mueble(models.Model):
 		super(Mueble, self).save()
 
 class SistemaBebedero(models.Model):
-	escuela = models.ForeignKey(Escuela, on_delete=models.CASCADE)
+	escuela = models.OneToOneField(Escuela, on_delete=models.CASCADE, related_name="escuela_sistemabebedero")
 	mueble = models.ForeignKey(Mueble, on_delete=models.CASCADE)
 	sistema_potabilizador = models.ForeignKey(SistemaPotabilizador, on_delete=models.CASCADE, blank=True, null=True)
 	ns_mueble = models.CharField(max_length=20, null=True, blank=True)

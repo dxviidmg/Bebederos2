@@ -6,7 +6,7 @@ class ExpedienteAdmin(admin.ModelAdmin):
     search_fields = ['escuela',]
 admin.site.register(Expediente, ExpedienteAdmin)
 
-class FotografiaAdmin(admin.ModelAdmin):
-    list_display = ['escuela',]
-    search_fields = ['escuela',]
-admin.site.register(Fotografia, FotografiaAdmin)
+#class FotografiaAdmin(admin.ModelAdmin):
+#    list_display = ['escuela',]
+#    search_fields = ['escuela',]
+#admin.site.register(Fotografia, FotografiaAdmin)

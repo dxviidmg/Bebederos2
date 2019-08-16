@@ -4,6 +4,8 @@
 
 {%block content%}
 
+	<a href="{%url 'escuelas:entidad-convocatoria-detail' object.entidad_convocatoria.slug%}">Regresar</a>
+	
 	<div class="table-responsive text-center">
 		<table class="table">
 			<thead>
@@ -82,29 +84,79 @@
 		</table>		
 	</div>
 
-<h2>ANALISIS DE AGUA</H2>
-N analisis {{analisis}}
-{%if numero_analisis == 1%}
-{{analisis.0.slug}}
-<a href="{%url 'agua:analisis-update' analisis.0.slug%}">Editar primer analisis</a>
-{%endif%}
+<div class="row">
+  <div class="col-sm-4 h-100">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Notas</h5>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
 
-<a href="{%url 'agua:analisis-create' object.slug%}">Nuevo analisis</a>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Primer analisis del agua</h5>
 
-<h2>EXPEDIENTE</h2>
-{{expediente}}
+        {%if numero_analisis == 0%}
+        <a href="{%url 'agua:analisis-create' object.slug%}" class="btn btn-primary">Crear</a>
+        {%else%}
+		<a href="{%url 'agua:analisis-update' analisis.0.slug%}" class="btn btn-primary">Actualizar</a>
+		{%endif%}
+      </div>
+    </div>
+  </div>
 
-{%if expediente == 0%}
-no hay, crea 1
-<a href="{%url 'expedientes:expediente-create' object.slug%}">Nuevo expediente</a>
+  <div class="col-sm-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Sistema bebedero</h5>
+        <a href="{%url 'bebederos:sistemabebedero-update' sistemabebedero.slug%}" class="btn btn-primary">Configurar</a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
 
-{%else%}
-si hay a actualizar
-<a href="{%url 'expedientes:expediente-update' expedientes.0.slug%}"> Actualizar expediente</a>
-{%endif%}
-<h2>SB</h2>
-<a href="{%url 'bebederos:sistemabebedero-update' sistemabebedero.slug%}">actualizar sb</a>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Expediente técnico</h5>
+        {%if expediente == 0%}
+        <a href="{%url 'expedientes:expediente-create' object.slug%}" class="btn btn-primary">Crear</a>
+		{%else%}
+		<a href="{%url 'expedientes:expediente-update' expedientes.0.slug%}" class="btn btn-primary">Actualizar</a>
+		{%endif%}
+      </div>
+    </div>
+  </div>
 
-<h2>MTTOS</h2>
-<a href="{%url 'mantenimientos:mantenimiento-list' object.slug%}">ver mmtos</a>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Segundo analisis del agua</h5>
+		{%if numero_analisis == 1%}
+        <a href="{%url 'agua:analisis-create' object.slug%}" class="btn btn-primary">Crear</a>
+        {%elif numero_analisis == 2%}
+		<a href="{%url 'agua:analisis-update' analisis.1.slug%}" class="btn btn-primary">Actualizar</a>
+		{%else%}
+		<a href="" class="btn btn-primary">Realizar el primer analisis</a>
+		{%endif%}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Mantenimientos</h5>
+        <a href="{%url 'mantenimientos:mantenimiento-list' object.slug%}" class="btn btn-primary">Ver y actualizar</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 {%endblock content%}

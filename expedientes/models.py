@@ -17,6 +17,12 @@ class Expediente(models.Model):
 	levantamiento_instalacion = models.FileField(upload_to='expedientes/%Y/%m/%d/', verbose_name="Levantamiento de instalación", null=True, blank=True)
 	acta_funcionamiento = models.FileField(upload_to='expedientes/%Y/%m/%d/', verbose_name="Acta de Inicio de funcionamiento",  null=True, blank=True)
 	acta_entrega = models.FileField(upload_to='expedientes/%Y/%m/%d/', verbose_name="Acta de entrega", null=True, blank=True)
+	fotografia_antes_1 = models.ImageField(upload_to='fotografias/%Y/%m/%d/', blank=True, null=True)
+	fotografia_antes_2 = models.ImageField(upload_to='fotografias/%Y/%m/%d/', blank=True, null=True)
+	fotografia_duarnte_1 = models.ImageField(upload_to='fotografias/%Y/%m/%d/', blank=True, null=True)
+	fotografia_durante_2 = models.ImageField(upload_to='fotografias/%Y/%m/%d/', blank=True, null=True)
+	fotografia_despues_1 = models.ImageField(upload_to='fotografias/%Y/%m/%d/', blank=True, null=True)
+	fotografia_despues_2 = models.ImageField(upload_to='fotografias/%Y/%m/%d/', blank=True, null=True)	
 	slug = models.SlugField(max_length=50, blank=True, unique=True)
 
 	def __str__(self):
@@ -27,16 +33,16 @@ class Expediente(models.Model):
 		super(Expediente, self).save()
 
 
-class Fotografia(models.Model):
-	descripcion_choices = (
-	("Antes", "Antes"),
-	("Durante", "Durante"),
-	("Despues", "Despues"),
-	)
-	escuela = models.ForeignKey(Escuela, on_delete=models.CASCADE)
-	fotografia = models.ImageField(upload_to='fotografias/%Y/%m/%d/')
-	descripcion = models.CharField(max_length=10, choices=descripcion_choices)
+#class Fotografia(models.Model):
+#	descripcion_choices = (
+#	("Antes", "Antes"),
+#	("Durante", "Durante"),
+#	("Despues", "Despues"),
+#	)
+#	escuela = models.ForeignKey(Escuela, on_delete=models.CASCADE)
+#	fotografia = models.ImageField(upload_to='fotografias/%Y/%m/%d/')
+#	descripcion = models.CharField(max_length=10, choices=descripcion_choices)
 
-	def __str__(self):
-		return '{} {}'.format(self.descripcion, self.escuela)
+#	def __str__(self):
+#		return '{} {}'.format(self.descripcion, self.escuela)
 

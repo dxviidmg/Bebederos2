@@ -93,8 +93,6 @@ class Escuela(models.Model):
 		return '{} {}'.format(self.cct, self.nombre)
 
 	#Convocatoria
-	entidad_convocatoria = models.ForeignKey(EntidadConvocatoria, on_delete=models.CASCADE)
-	numero = models.IntegerField()
 	#Administrativos
 	cct = models.CharField(max_length=10)
 	nombre = models.TextField()
