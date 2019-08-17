@@ -6,7 +6,7 @@ from django.urls import reverse
 
 class ExpedienteCreateView(SuccessMessageMixin, CreateView):
 	model = Expediente
-	fields = [	'acta_ubicacion', 'acta_inicio_construccion', 'cedula_identificacion', 'convenio_concertacion', 'plano_conjunto', 'distribucion_planta', 'memoria_calculo_1', 'memoria_calculo_2', 'memoria_calculo_3', 'isometrico_instalacion', 'levantamiento_instalacion', 'acta_funcionamiento', 'acta_entrega',]
+	fields = [	'acta_ubicacion', 'acta_inicio_construccion', 'cedula_identificacion', 'convenio_concertacion', 'plano_conjunto', 'distribucion_planta', 'memoria_calculo_1', 'memoria_calculo_2', 'memoria_calculo_3', 'isometrico_instalacion', 'levantamiento_instalacion', 'acta_funcionamiento', 'acta_entrega', 	'fotografia_antes_1', 'fotografia_antes_2', 'fotografia_duarnte_1',	'fotografia_durante_2',	'fotografia_despues_1', 'fotografia_despues_2',]
 
 	success_message = "¡Creacion exitosa!"
 
@@ -28,7 +28,7 @@ class ExpedienteCreateView(SuccessMessageMixin, CreateView):
 
 class ExpedienteUpdateView(SuccessMessageMixin, UpdateView):
 	model = Expediente
-	fields = ['acta_ubicacion', 'acta_inicio_construccion', 'cedula_identificacion', 'convenio_concertacion', 'plano_conjunto', 'distribucion_planta', 'memoria_calculo_1', 'memoria_calculo_2', 'memoria_calculo_3', 'isometrico_instalacion', 'levantamiento_instalacion', 'acta_funcionamiento', 'acta_entrega',]
+	fields = ['acta_ubicacion', 'acta_inicio_construccion', 'cedula_identificacion', 'convenio_concertacion', 'plano_conjunto', 'distribucion_planta', 'memoria_calculo_1', 'memoria_calculo_2', 'memoria_calculo_3', 'isometrico_instalacion', 'levantamiento_instalacion', 'acta_funcionamiento', 'acta_entrega', 	'fotografia_antes_1', 'fotografia_antes_2', 'fotografia_duarnte_1',	'fotografia_durante_2',	'fotografia_despues_1', 'fotografia_despues_2',]
 
 	success_message = "¡Actualizacion exitosa exitosa!"
 

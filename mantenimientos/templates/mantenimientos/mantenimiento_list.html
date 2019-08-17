@@ -4,10 +4,18 @@
 
 {%block content%}
 
-	<h2>Mantenimientos de {{escuela}}</h2>
+	<h2></h2>
 
 	<a href="{%url 'escuelas:escuela-detail' escuela.slug%}">Regresar</a>
 
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>Mantenimientos de {{escuela}}</th>
+			</thead>
+		</table>
+	</div>
+	
 	<a href="{%url 'mantenimientos:mantenimiento-create' escuela.slug%}">Nuevo mantenimiento</a>
 
 	<div class="table-responsive text-center">
@@ -15,7 +23,7 @@
 			<thead>
 				<th>Fecha</th>
 				<th>Tipo</th>
-				<th>Descripcion</th>
+				<th>Descripción</th>
 				<th>Volumen</th>
 				<th>Foto del carnet</th>
 				<th>Foto al inicio</th>		

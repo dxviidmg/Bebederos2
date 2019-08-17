@@ -23,7 +23,8 @@ urlpatterns = [
     path('', include('expedientes.urls', namespace="expedientes")),
     path('', include('bebederos.urls', namespace="bebederos")),
     path('', include('mantenimientos.urls', namespace="mantenimientos")),
-    path('', include('accounts.urls', namespace="accounts")),    
+    path('', include('accounts.urls', namespace="accounts")),
+    path('', include('incidencias.urls', namespace="incidencias")),    
 ]
 
 #Media and static

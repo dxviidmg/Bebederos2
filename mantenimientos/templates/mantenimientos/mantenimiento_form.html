@@ -6,7 +6,15 @@
 
 	<a href="{%url 'mantenimientos:mantenimiento-list' escuela.slug%}">Regresar</a>
 
-	<h2>{%if object%} Actualización{%else%} Creación{%endif%} de mantenimiento de la escuela {{escuela}}</h2>
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>{%if object%} Actualización{%else%} Creación{%endif%} de mantenimiento de la escuela {{escuela}}</th>
+			</thead>
+		</table>
+	</div>
+	
+	<h2></h2>
 
 	<form method="post" enctype="multipart/form-data">
 		{%csrf_token%}

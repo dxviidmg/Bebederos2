@@ -4,13 +4,20 @@
 
 {%block content%}
 
-	<h2>{%if object%} Configuración{%endif%} de componentes del sistema bebedero</h2>
+	<a href="{%url 'escuelas:escuela-detail' escuela.slug%}">Regresar</a>	
 
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>{%if object%} Configuración{%endif%} de componentes del sistema bebedero</th>
+			</thead>
+		</table>
+	</div>
 
+	{{object.no_trazabilidad}}
 	<form method="post" enctype="multipart/form-data">
 		{%csrf_token%}
 		{{form|bootstrap}}
-
 		<input type="submit" value="Guardar">
 	</form>
 

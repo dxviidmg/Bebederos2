@@ -9,7 +9,7 @@
 	<div class="table-responsive text-center">
 		<table class="table">
 			<thead>
-				<th>Numero</th>
+				<th>Número</th>
 				<th>CCT</th>
 				<th>Nombre</th>
 				<th>Convocatoria</th>				
@@ -73,7 +73,7 @@
 		<table class="table">
 			<thead>
 				<th>Director</th>
-				<th>Telefono</th>
+				<th>Teléfono</th>
 			</thead>
 			<tbody>
 				<tr>
@@ -89,7 +89,7 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Notas</h5>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a href="{%url 'incidencias:incidencia-list' object.slug%}" class="btn btn-primary">Ver</a>
       </div>
     </div>
   </div>
@@ -97,7 +97,7 @@
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Primer analisis del agua</h5>
+        <h5 class="card-title">Primer análisis del agua</h5>
 
         {%if numero_analisis == 0%}
         <a href="{%url 'agua:analisis-create' object.slug%}" class="btn btn-primary">Crear</a>
@@ -136,7 +136,7 @@
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Segundo analisis del agua</h5>
+        <h5 class="card-title">Segundo análisis del agua</h5>
 		{%if numero_analisis == 1%}
         <a href="{%url 'agua:analisis-create' object.slug%}" class="btn btn-primary">Crear</a>
         {%elif numero_analisis == 2%}

@@ -4,16 +4,15 @@
 
 {%block content%}
 
-	<a href="{%url 'escuelas:escuela-detail' escuela.slug%}">Regresar</a>	
+	<a href="{%url 'incidencias:incidencia-list' escuela.slug%}">Regresar</a>
 
-		<div class="table-responsive text-center">
+	<div class="table-responsive text-center">
 		<table class="table">
 			<thead>
-				<th>{%if object%}Actualización{%else%}Creación{%endif%} de análisis agua</th>
+				<th>{%if object%} Actualización{%else%} Creación{%endif%} de nota o incidencia de la escuela {{escuela}}</th>
 			</thead>
 		</table>
 	</div>
-
 
 	<form method="post" enctype="multipart/form-data">
 		{%csrf_token%}

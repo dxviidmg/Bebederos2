@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+
+{% load bootstrap %}
+
+{%block content%}
+
+	<a href="{%url 'escuelas:escuela-detail' escuela.slug%}">Regresar</a>
+
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>Notas e incidencias de {{escuela}}</th>
+			</thead>
+		</table>
+
+	</div>
+
+	<a href="{%url 'incidencias:incidencia-create' escuela.slug%}">Nueva incidencia</a>
+
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th>Folio</th>
+				<th>Autor</th>
+				<th>Creación</th>
+				<th>Descripción</th>
+				<th>Prioridad</th>
+				<th>Status</th>
+				<th>Evidencia</th>
+				<th>Solución</th>
+				<th>Evidencia de solución</th>
+				<th>Fecha de solución</th>
+			</thead>
+			<tbody>
+
+	{%for incidencia in incidencias%}
+
+				<tr>
+					<td><a href="{%url 'incidencias:incidencia-update' incidencia.pk%}">{{incidencia.pk}}</a></td>
+					<td>{{incidencia.autor}}</td>
+					<td>
+					{{incidencia.creacion}}</td>
+					<td>{{incidencia.descripcion}}</td>
+					<td>{{incidencia.prioridad}}</td>
+					<td>{{incidencia.status}}</td>
+					<td>{%if incidencia.evidencia_incidencia%}<a href="{incidencia.evidencia_incidencia.url}}">Ver</a>{%endif%}</td>
+					<td>{%if incidencia.solucion%}{{incidencia.solucion}}{%endif%}</td>
+					<td>{%if incidencia.evidencia_solucion%}<a href="{{incidencia.evidencia_solucion.url}}">Ver</a>{%endif%}</td>
+					<td>{%if incidencia.fecha_solucion%}{{incidencia.fecha_solucion}}{%endif%}</td>
+				</tr>
+	
+	{%empty%}
+	
+				<tr>
+					<td colspan="9">No hay incidencias</td>
+				</tr>
+
+	{%endfor%}
+
+			</tbody>
+		</table>
+	</div>
+
+{%endblock content%}

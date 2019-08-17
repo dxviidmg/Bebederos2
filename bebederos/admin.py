@@ -1,10 +1,10 @@
 from django.contrib import admin
 from .models import *
 
-class ProveedorAdmin(admin.ModelAdmin):
-	list_display = ['nombre']
+#class ProveedorAdmin(admin.ModelAdmin):
+#	list_display = ['nombre']
 #	search_fields = ['escuela',]
-admin.site.register(Proveedor, ProveedorAdmin)
+#admin.site.register(Proveedor, ProveedorAdmin)
 
 class SistemaPotabilizadorAdmin(admin.ModelAdmin):
 	list_display = ['tipo']

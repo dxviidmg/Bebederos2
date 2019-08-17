@@ -25,7 +25,7 @@ SECRET_KEY = '_y1%_$z^vg%g_r8a*g7xhal238c536s8axzmgx@h^+v=ea9j=x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bebederos',
     'mantenimientos',
     'accounts',
+    'incidencias',
 #    'oficios',
     #Modules
     'bootstrapform',

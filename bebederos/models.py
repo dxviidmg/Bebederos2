@@ -15,29 +15,29 @@ rango_choices = (
 ("601 o más", "601 o más"),	
 )
 
-class Proveedor(models.Model):
-	nombre = models.CharField(max_length=20)	
+#class Proveedor(models.Model):
+#	nombre = models.CharField(max_length=20)	
 
-	def __str__(self):
-		return '{}'.format(self.nombre)
+#	def __str__(self):
+#		return '{}'.format(self.nombre)
 
 class SistemaPotabilizador(models.Model):
 	tipo = models.CharField(max_length=20)
-	ficha_tecnica = models.FileField(upload_to='ficha_tecnica/%Y/%m/%d/', verbose_name="Ficha técnica", null=True, blank=True)
-	proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
+#	ficha_tecnica = models.FileField(upload_to='ficha_tecnica/%Y/%m/%d/', verbose_name="Ficha técnica", null=True, blank=True)
+#	proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return '{} {}'.format(self.tipo, self.proveedor)
+		return '{}'.format(self.tipo,)
 
 class Mueble(models.Model):
 	modelo = models.CharField(max_length=20, null=True, blank=True)
 	nivel_educativo = models.CharField(max_length=20, choices=nivel_choices)
 	rango = models.CharField(max_length=10, choices=rango_choices)
-	ficha_tecnica = models.FileField(upload_to='ficha_tecnica/%Y/%m/%d/', verbose_name="Ficha técnica", null=True, blank=True)
-	proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)	
+#	ficha_tecnica = models.FileField(upload_to='ficha_tecnica/%Y/%m/%d/', verbose_name="Ficha técnica", null=True, blank=True)
+#	proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)	
 
 	def __str__(self):
-		return '{} {}'.format(self.modelo, self.proveedor)
+		return '{}'.format(self.modelo)
 
 	def save(self):
 		if self.nivel_educativo == "Preescolar":
@@ -63,7 +63,7 @@ class SistemaBebedero(models.Model):
 	escuela = models.OneToOneField(Escuela, on_delete=models.CASCADE, related_name="escuela_sistemabebedero")
 	mueble = models.ForeignKey(Mueble, on_delete=models.CASCADE)
 	sistema_potabilizador = models.ForeignKey(SistemaPotabilizador, on_delete=models.CASCADE, blank=True, null=True)
-	ns_mueble = models.CharField(max_length=20, null=True, blank=True)
+	num_serie_mueble = models.CharField(max_length=20, null=True, blank=True)
 	no_trazabilidad = models.TextField(null=True, blank=True)
 	esta_en_campo = models.BooleanField(default=False)
 	slug = models.SlugField(max_length=50, blank=True, null=True)
@@ -73,7 +73,6 @@ class SistemaBebedero(models.Model):
 
 	def save(self):
 		self.slug = "sb-" + slugify(self.escuela)
-#		if self.sistema_potabilizador and self.ns_mueble:
-#			self.no_trazabilidad = self.mueble# + str(self.ns_mueble + self.sistema_potabilizador)
-	
-		super(SistemaBebedero, self).save()		
+		if self.sistema_potabilizador and self.num_serie_mueble:
+			self.no_trazabilidad = '-'.join((slugify(self.escuela.entidad_convocatoria.entidad.abreviatura), slugify(self.escuela.cct), slugify(self.mueble), slugify("nsm"), slugify(self.num_serie_mueble))).upper()
+		super(SistemaBebedero, self).save()
