@@ -53,3 +53,11 @@ jobs:
       - store_artifacts:
           path: test-reports
           destination: test-reports
+
+version: 2
+jobs:
+  deploy-job:
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "d6:ba:9c:bd:ce:ab:14:e5:d5:a6:5f:5c:b2:62:90:5b"
