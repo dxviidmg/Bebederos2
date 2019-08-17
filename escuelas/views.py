@@ -34,7 +34,9 @@ class EntidadConvocatoriaDetailView(DetailView):
 
 	def get_context_data(self, **kwargs):
 		context = super(EntidadConvocatoriaDetailView, self).get_context_data(**kwargs)
-		context['escuelas'] = Escuela.objects.filter(entidad_convocatoria=self.object)
+		entidad_convocatoria = EntidadConvocatoria.objects.get(slug=self.object.slug)
+		context['escuelas'] = Escuela.objects.filter(entidad_convocatoria=entidad_convocatoria)
+		context['oficios'] = Oficio.objects.filter(entidad_convocatoria=entidad_convocatoria)	
 #		print(context['entidades'])
 #		print(self.object)
 		return context	

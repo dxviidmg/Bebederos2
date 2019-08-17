@@ -55,4 +55,4 @@ class MantenimientoUpdateView(UpdateView):
 		context = super(MantenimientoUpdateView, self).get_context_data(**kwargs)
 		mantenimiento = Mantenimiento.objects.get(pk=self.kwargs['pk'])
 		context['escuela'] = mantenimiento.escuela
-		return context		
+		return context

@@ -22,10 +22,66 @@
 		</table>
 	</div>
 
-	<h3>Lista de escuelas</h3>
 
 	<div class="table-responsive text-center">
 		<table class="table">
+			<thead>
+				<th colspan="8">Documentación</th>
+			</thead>
+			<thead>
+				<th>Nombre</th>
+				<th>Fecha</th>
+				<th>Subido por</th>
+			</thead>
+			<tbody>
+
+	{%for oficio in oficios%}
+
+				<tr>
+					<td><a href="{{oficio.archivo.url}}">{{oficio.nombre}}</a></td>
+					<td>{{oficio.fecha}}</td>
+					<td>{{oficio.autor}}</td>
+				</tr>
+	
+	{%empty%}
+	
+				<tr>
+					<td colspan="8">Lista de escuelas vacia</td>
+				</tr>
+
+	{%endfor%}
+
+			</tbody>
+		</table>
+	</div>
+
+
+
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th colspan="2">Reportes</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<a href="">Reporte general (Proximamente)</a>
+					</td>
+				<tr>
+				</tr>
+					<td>
+						<a href="">T7(Proximamente)</a>						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="table-responsive text-center">
+		<table class="table">
+			<thead>
+				<th colspan="8">Escuelas</th>
+			</thead>
 			<thead>
 				<th>Número</th>
 				<th>CCT</th>
@@ -34,7 +90,7 @@
 				<th>Localidad</th>
 				<th>Plantilla</th>
 				<th>Mueble</th>
-				<th>Lista</th>								
+				<th>Lista</th>			
 			</thead>
 			<tbody>
 
@@ -56,7 +112,7 @@
 	{%empty%}
 	
 				<tr>
-					<td colspan="3">Lista de regiones vacia</td>
+					<td colspan="8">Lista de escuelas vacia</td>
 				</tr>
 
 	{%endfor%}

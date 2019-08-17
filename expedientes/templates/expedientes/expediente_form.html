@@ -14,6 +14,80 @@
 		</table>
 	</div>
 
+	{%if object.acta_ubicacion%}
+	<a class="btn btn-primary" href="{{object.acta_ubicacion.url}}" role="button">Acta de ubicación</a>
+	{%endif%}
+
+	{%if object.acta_inicio_construccion%}
+	<a class="btn btn-primary" href="{{object.acta_inicio_construccion.url}}" role="button">Acta de inicio de construcción</a>
+	{%endif%}
+
+	{%if object.cedula_identificacion%}
+	<a class="btn btn-primary" href="{{object.cedula_identificacion.url}}" role="button">Cédula de identificación</a>
+	{%endif%}
+
+	{%if object.convenio_concertacion%}
+	<a class="btn btn-primary" href="{{object.convenio_concertacion.url}}" role="button">Convenio de concertación</a>
+	{%endif%}
+
+	{%if object.plano_conjunto%}
+	<a class="btn btn-primary" href="{{object.plano_conjunto.url}}" role="button">Plano de conjunto</a>
+	{%endif%}
+
+	{%if object.distribucion_planta%}
+	<a class="btn btn-primary" href="{{object.distribucion_planta.url}}" role="button">Distribución de planta</a>
+	{%endif%}
+
+	{%if object.memoria_calculo_1 %}
+	<a class="btn btn-primary" href="{{object.memoria_calculo_1.url}}" role="button">Memoria de cálculo hidraulico</a>
+	{%endif%}
+
+	{%if object.memoria_calculo_2%}
+	<a class="btn btn-primary" href="{{object.memoria_calculo_2.url}}" role="button">Memoria de cálculo sanitario</a>
+	{%endif%}
+
+	{%if object.memoria_calculo_3%}
+	<a class="btn btn-primary" href="{{object.memoria_calculo_3.url}}" role="button">Memoria de cálculo electrico</a>
+	{%endif%}
+
+	{%if object.isometrico_instalacion%}
+	<a class="btn btn-primary" href="{{object.isometrico_instalacion.url}}" role="button">Isometricos</a>
+	{%endif%}
+
+
+
+
+	{%if object.levantamiento_instalacion%}
+	<a class="btn btn-primary" href="{{object.levantamiento_instalacion.url}}" role="button">Levantamiento de instalación</a>
+	{%endif%}
+
+	{%if object.acta_funcionamiento%}
+	<a class="btn btn-primary" href="{{object.acta_funcionamiento.url}}" role="button">Acta de funcionamiento</a>
+	{%endif%}
+
+	{%if object.fotografia_antes_1%}
+	<a class="btn btn-primary" href="{{object.fotografia_antes_1.url}}" role="button">Fotografía antes 1</a>
+	{%endif%}
+
+	{%if object.fotografia_antes_2%}
+	<a class="btn btn-primary" href="{{object.fotografia_antes_2.url}}" role="button">Fotografía antes 2</a>
+	{%endif%}
+
+	{%if object.fotografia_antes_1%}
+	<a class="btn btn-primary" href="{{object.fotografia_antes_1.url}}" role="button">Fotografía antes 1</a>
+	{%endif%}
+
+	{%if object.fotografia_durante_2%}
+	<a class="btn btn-primary" href="{{object.fotografia_durante_2.url}}" role="button">Fotografía durante 2</a>
+	{%endif%}
+
+	{%if object.fotografia_despues_1%}
+	<a class="btn btn-primary" href="{{object.fotografia_despues_1.url}}" role="button">Fotografía despues 1</a>
+	{%endif%}
+
+	{%if object.fotografia_despues_2%}
+	<a class="btn btn-primary" href="{{object.fotografia_despues_2.url}}" role="button">Fotografía despues 2</a>
+	{%endif%}
 
 	<form method="post" enctype="multipart/form-data">
 		{%csrf_token%}

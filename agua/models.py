@@ -19,7 +19,7 @@ comparacion_choices = (
 class Dictamen(models.Model):
 	nombre = models.CharField(max_length=15)
 	fecha = models.DateField(default=timezone.now)
-	documento = models.FileField(upload_to='dictamenes/%Y/%m/%d/')
+	archivo = models.FileField(upload_to='dictamenes/%Y/%m/%d/')
 
 	def __str__(self):
 		return '{}'.format(self.nombre)

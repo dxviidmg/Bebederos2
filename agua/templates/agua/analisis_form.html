@@ -6,7 +6,7 @@
 
 	<a href="{%url 'escuelas:escuela-detail' escuela.slug%}">Regresar</a>	
 
-		<div class="table-responsive text-center">
+	<div class="table-responsive text-center">
 		<table class="table">
 			<thead>
 				<th>{%if object%}Actualización{%else%}Creación{%endif%} de análisis agua</th>
@@ -14,6 +14,25 @@
 		</table>
 	</div>
 
+	{%if object.evidencia_visita%}
+	<a class="btn btn-primary" href="{{object.evidencia_visita.url}}" role="button">Evidencia de visita</a>
+	{%endif%}
+
+	{%if object.registro_campo%}
+	<a class="btn btn-primary" href="{{object.registro_campo.url}}" role="button">Registro de campo</a>
+	{%endif%}
+
+	{%if object.cadena_custodia%}
+	<a class="btn btn-primary" href="{{object.cadena_custodia.url}}" role="button">Cadena de custodia</a>
+	{%endif%}
+
+	{%if object.resultado%}
+	<a class="btn btn-primary" href="{{object.resultado.url}}" role="button">Resultados de análisis</a>
+	{%endif%}
+	
+	{%if object.dictamen.archivo%}
+	<a class="btn btn-primary" href="{{object.dictamen.archivo.url}}" role="button">Dictamen del IMTA</a>	
+	{%endif%}
 
 	<form method="post" enctype="multipart/form-data">
 		{%csrf_token%}
